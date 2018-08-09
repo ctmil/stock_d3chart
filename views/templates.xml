@@ -1,0 +1,83 @@
+<odoo>
+    <data>
+
+	     <template id="assets_frontend" inherit_id="website.assets_frontend" name="Stock D3 Assets">
+   	    <xpath expr="." position="inside">
+           	<!-- jQuery addons -->
+            	<!-- script type="text/javascript" src="/web/static/lib/jquery.validate/jquery.validate.js"></script>
+            	<script type="text/javascript" src="/web/static/lib/jquery.scrollTo/jquery.scrollTo.js"></script>
+
+            	<link rel="stylesheet" href="/web/static/lib/jquery.textext/jquery.textext.css"/>
+            	<script type="text/javascript" src="/web/static/lib/jquery.textext/jquery.textext.js"></script>
+
+            	<link rel="stylesheet" href="/web/static/lib/jquery.ui.notify/css/ui.notify.css"/>
+            	<script type="text/javascript" src="/web/static/lib/jquery.ui.notify/js/jquery.notify.js"></script -->
+
+            	<!-- nv.d3 -->
+            	<link rel="stylesheet" href="/web/static/lib/nvd3/nv.d3.css"/>
+            	<script type="text/javascript" src="/web/static/lib/nvd3/d3.v3.js"></script>
+            	<script type="text/javascript" src="/web/static/lib/nvd3/nv.d3.js"></script>
+
+		          <script type="text/javascript" src="/stock_d3/static/src/js/website.js"></script>
+              <link rel="stylesheet" href="/stock_d3/static/src/css/style.css" />
+
+            	<script type="text/javascript" src="/web/static/lib/py.js/lib/py.js"></script>
+            	<!-- Special case: core.js declares $.browser needed by ba-bbq -->
+            	<script type="text/javascript" src="/web/static/src/js/framework/data.js"></script>
+            	<script type="text/javascript" src="/web/static/src/js/framework/data_model.js"></script>
+            	<script type="text/javascript" src="/web/static/src/js/framework/formats.js"></script>
+            	<script type="text/javascript" src="/web/static/src/js/framework/view.js"></script>
+            	<script type="text/javascript" src="/web/static/src/js/framework/pyeval.js"></script>
+    	    </xpath>
+  	    </template>
+        <template id="assets_backend" inherit_id="website.assets_backend" name="Stock D3 Web Assets">
+    	    <xpath expr="." position="inside">
+              <link rel="stylesheet" href="/stock_d3/static/src/css/style.css" />
+              <script type="text/javascript" src="/stock_d3/static/src/js/website.js"></script>
+     	    </xpath>
+   	    </template>
+
+        <template id="index" name="Stock-D3">
+  	     <t t-call="website.layout">
+  	        <div class="oe_structure">
+              <body data-spy="scroll" data-target=".navspy" data-offset="50">
+	              <div class="container">
+                  <div class="row">
+                    <div class="col jumbotron jumbotron_stock_d3">
+                      <h4>Serial Lot ID:</h4>
+                      <t t-foreach="lots" t-as="lot">
+                        <h5 t-field="lot.name" />
+                        <h5>Producto: <span t-field="lot.product_id.name" /></h5>
+                      </t>
+                    </div>
+                  </div>
+    		          <div id="stock_d3">
+                	</div>
+                </div>
+              </body>
+  	        </div>
+          </t>
+      	</template>
+
+        <record id="view_stock_production_lot_custom" model="ir.ui.view">
+          <field name="name">stock.production.lot.custom.form.inherited</field>
+          <field name="model">stock.production.lot</field>
+          <field name="inherit_id" ref="stock.view_production_lot_form"/>
+          <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+              <button type="object" name="show_lot" id="o_btn_see_trazability"
+                class="btn btn-sm oe_stat_button btn-traceability"
+                title="Ver Trazabilidad">
+		            <div class="fa fa-truck o_button_icon tra_big_icon">
+                  <i class="fa fa-line-chart inner-icon"></i>
+                </div>
+                <div class="o_stat_info o_form_field tra_desc" title="Ver Trazabilidad">
+                  <span class="o_stat_text text-success">Trazabilidad</span>
+                </div>
+              </button>
+            </xpath>
+          </field>
+        </record>
+
+    </data>
+</odoo>
