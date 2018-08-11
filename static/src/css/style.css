@@ -7,13 +7,22 @@
 .node {
   cursor: pointer;
 }
-.node circle {
+.node rect {
+  cursor: pointer;
   fill: #fff;
-  stroke: steelblue;
-  stroke-width: 3px;
+  stroke: #444;
+  stroke-width: 2px;
+}
+.node rect {
+  fill: #fff;
+  stroke: #444;
+  stroke-width: 2px;
 }
 .node text {
   font: 12px sans-serif;
+}
+.link {
+  stroke: #aaa !important;
 }
 .link {
   fill: none;

@@ -18,8 +18,8 @@
             	<script type="text/javascript" src="/web/static/lib/nvd3/d3.v3.js"></script>
             	<script type="text/javascript" src="/web/static/lib/nvd3/nv.d3.js"></script>
 
-		          <script type="text/javascript" src="/stock_d3/static/src/js/website.js"></script>
-              <link rel="stylesheet" href="/stock_d3/static/src/css/style.css" />
+		          <script type="text/javascript" src="/stock_d3chart/static/src/js/website.js"></script>
+              <link rel="stylesheet" href="/stock_d3chart/static/src/css/style.css" />
 
             	<script type="text/javascript" src="/web/static/lib/py.js/lib/py.js"></script>
             	<!-- Special case: core.js declares $.browser needed by ba-bbq -->
@@ -32,8 +32,8 @@
   	    </template>
         <template id="assets_backend" inherit_id="website.assets_backend" name="Stock D3 Web Assets">
     	    <xpath expr="." position="inside">
-              <link rel="stylesheet" href="/stock_d3/static/src/css/style.css" />
-              <script type="text/javascript" src="/stock_d3/static/src/js/website.js"></script>
+              <link rel="stylesheet" href="/stock_d3chart/static/src/css/style.css" />
+              <script type="text/javascript" src="/stock_d3chart/static/src/js/website.js"></script>
      	    </xpath>
    	    </template>
 
