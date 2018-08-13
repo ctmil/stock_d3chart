@@ -14,7 +14,7 @@ odoo.define('stock_d3.index', function (require) {
     var children = [];
 
     var Lots = new Model('stock.production.lot');
-    Lots.query(['id','name', 'product_id']).filter([['name', '=', id]]).all().then(function(data) {
+    Lots.query(['id','name', 'product_id']).filter([['id', '=', id]]).all().then(function(data) {
       var product = limitChars(data[0].product_id[1]);
       treeData = [
         {
