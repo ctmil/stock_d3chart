@@ -8,10 +8,10 @@ class button_action(models.Model):
 
     def show_lot(self):
         data = self.read()
-        id = data[0]['display_name']
+        id = data[0]['id']
 
         return {
             'type': 'ir.actions.act_url',
             'target': 'new',
-            'url': '/stock_d3?id=%s' % id
+            'url': '/stock_d3chart?id=' + str(id)
         }
